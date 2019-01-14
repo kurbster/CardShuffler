@@ -8,7 +8,7 @@ import java.util.ArrayList;
 //Played out in a poker hand with 4 people then there would be no melds
 //Only high card hands that round, with the flop, turn and river
 public class main {
-	private static ArrayList<Card> cards = new ArrayList();
+	private static ArrayList<Card> cards = new ArrayList<Card>();
 	
 	//This method
 	private static void initCards(){
@@ -35,7 +35,10 @@ public class main {
 						suit = "";
 				}
 				switch (j) {
-				case 1:case 2:case 3:case 4:case 5:
+				case 1:
+					value = "Ace";
+					break;
+				case 2:case 3:case 4:case 5:
 				case 6:case 7:case 8:case 9:case 10: 
 					value = Integer.toString(j);
 					break;
@@ -57,8 +60,13 @@ public class main {
 		}
 	}
 	
+	private static void printCards(){
+		cards.forEach( (n) -> System.out.println(n.getValue() + " of " + n.getSuit()));
+	}
+	
 	public static void main(String[] args) {
 		initCards();
+		printCards();
 	}
 
 }
