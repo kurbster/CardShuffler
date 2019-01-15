@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 //Created by Kirby Kuznia on 1/14/19
 //This program will see which shuffling styles would shuffle the 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 //Played out in a poker hand with 4 people then there would be no melds
 //Only high card hands that round, with the flop, turn and river
 public class main {
-	private static ArrayList<Card> cards = new ArrayList<Card>();
+	private static List<Card> cards = new ArrayList<Card>(52);
 	
 	//This method
 	private static void initCards(){
@@ -60,13 +61,15 @@ public class main {
 		}
 	}
 	
-	private static void printCards(){
-		cards.forEach( (n) -> System.out.println(n.getValue() + " of " + n.getSuit()));
+	private static void printDeck(List<Card> deck){
+		deck.forEach( (n) -> System.out.println(n.getValue() + " of " + n.getSuit()));
 	}
 	
 	public static void main(String[] args) {
 		initCards();
-		printCards();
+		PerfectShuffle shuf = new PerfectShuffle(cards);
+		List<Card> deck = shuf.fullyShuffle();
+		printDeck(deck);
 	}
 
 }
