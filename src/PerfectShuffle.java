@@ -26,8 +26,8 @@ public class PerfectShuffle {
 		for(int i = 0; i < 26; i++){
 			newCards.add(deck1.get(i));
 			newCards.add(deck2.get(i));
-			
 		}
+		cards = newCards;
 		return newCards;
 	}
 	
