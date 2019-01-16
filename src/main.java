@@ -4,8 +4,8 @@ import java.util.List;
 //Created by Kirby Kuznia on 1/14/19
 //This program will see which shuffling styles would shuffle the 
 //Deck in the least possible terms, we measure this by the standard
-//I call well-mixed where there are no pairs and no same suited cards
-//Next to each other, I define poker well-mixed as if the deck were
+//I call well-mixed where no 2 cards that started next to each other
+//Are next to each other, I define poker well-mixed as if the deck were
 //Played out in a poker hand with 4 people then there would be no melds
 //Only high card hands that round, with the flop, turn and river
 public class main {
