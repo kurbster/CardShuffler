@@ -1,6 +1,10 @@
 import java.util.ArrayList;
 import java.util.List;
 
+import objects.Card;
+import objects.PerfectShuffle;
+import input_output.OutputManager;
+
 //Created by Kirby Kuznia on 1/14/19
 //This program will see which shuffling styles would shuffle the 
 //Deck in the least possible terms, we measure this by the standard
@@ -10,8 +14,10 @@ import java.util.List;
 //Only high card hands that round, with the flop, turn and river
 public class main {
 	private static List<Card> cards = new ArrayList<Card>(52);
+	private static List<Card> unshuffledDeck = new ArrayList<Card>(52);
 	
-	//This method
+	//This method creates a card object for every card in the deck giving
+	//Us our starting deck
 	private static void initCards(){
 		String suit, value;
 		//For each of the 4 suits
@@ -21,36 +27,36 @@ public class main {
 				//Add it to our array
 				switch (i) {
 				case 1:
-					suit = "Hearts";
+					suit = "H";
 					break;
 				case 2:
-					suit = "Clubs";
+					suit = "C";
 					break;
 				case 3:
-					suit = "Diamonds";
+					suit = "D";
 					break;
 				case 4:
-					suit = "Spades";
+					suit = "S";
 					break;
 				default:
 						suit = "";
 				}
 				switch (j) {
 				case 1:
-					value = "Ace";
+					value = "A";
 					break;
 				case 2:case 3:case 4:case 5:
 				case 6:case 7:case 8:case 9:case 10: 
 					value = Integer.toString(j);
 					break;
 				case 11:
-					value = "Jack";
+					value = "J";
 					break;
 				case 12:
-					value = "Queen";
+					value = "Q";
 					break;
 				case 13:
-					value = "King";
+					value = "K";
 					break;
 				default:
 					value = "";
@@ -62,13 +68,16 @@ public class main {
 	}
 	
 	private static void printDeck(List<Card> deck){
-		deck.forEach( (n) -> System.out.println(n.getValue() + " of " + n.getSuit()));
+		deck.forEach((n) -> System.out.println(n.getValue() + n.getSuit()));
 	}
 	
 	public static void main(String[] args) {
-		initCards();
-		PerfectShuffle shuf = new PerfectShuffle(cards);
-		List<Card> deck = shuf.fullyShuffle();
+		initCards();	//Init the deck
+		unshuffledDeck = cards;		//Save the unshuffled deck for comparison
+		PerfectShuffle shuf = new PerfectShuffle(cards);	//Create a new shuffling object
+		List<Card> deck = shuf.fullyShuffle();		//Call the shuffling mehtod
+		OutputManager output = new OutputManager();
+		output.writeFile(unshuffledDeck, deck, "Random");
 		printDeck(deck);
 	}
 

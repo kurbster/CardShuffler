@@ -1,3 +1,4 @@
+package objects;
 
 public class Card {
 	private String value;

@@ -1,3 +1,4 @@
+package objects;
 import java.util.*;
 
 public class PerfectShuffle {
@@ -21,6 +22,9 @@ public class PerfectShuffle {
 		List<Card> shuffledCards = shuffleOnce();
 		return shuffledCards;
 	}
+	
+	//For debugging purposes this will not shuffle the given deck
+	public List<Card> noShuffle(){return cards;}
 	
 	//Perform one round of shuffling
 	//Which cuts the deck into 2 parts then shuffles
