@@ -68,7 +68,7 @@ public class main {
 	}
 	
 	private static void printDeck(List<Card> deck){
-		deck.forEach((n) -> System.out.println(n.getValue() + n.getSuit()));
+		deck.forEach((n) -> System.out.println(n.getCard()));
 	}
 	
 	public static void main(String[] args) {

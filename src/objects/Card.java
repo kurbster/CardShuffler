@@ -8,10 +8,7 @@ public class Card {
 		value = val;
 		suit = s;
 	}
-	public String getValue() {
-		return value;
-	}
-	public String getSuit() {
-		return suit;
+	public String getCard(){
+		return value + suit;
 	}
 }
