@@ -18,10 +18,7 @@ public class Shuffler {
 		shuffleOnceRandom();
 		return ourDeck;
 	}
-	private static void printDeck(Deck myDeck){
-		List<Card> deck = myDeck.getCurrentDeck();
-		deck.forEach((n) -> System.out.println(n.getCard()));
-	}
+	
 	//This method will shuffle the deck in a riffle like how we regularly shuffle
 	//This is accomplished by picking a random number then taking that many off 
 	//Of the top or bottom half of the deck until one half is gone the the rest are placed on
