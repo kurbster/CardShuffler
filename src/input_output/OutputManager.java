@@ -8,9 +8,10 @@ import java.util.List;
 import java.util.ListIterator;
 
 import objects.Card;
+import objects.Deck;
 
 public class OutputManager {
-	public void writeFile(List<Card> startDeck, List<Card> endDeck, String shufflingName){
+	public void writeFile(Deck startDeck, Deck endDeck){
 		//This string helps us format the output for it looks pretty
 		String formatter = "%-3.3s %-3.3s%n";
 		try{
@@ -22,8 +23,8 @@ public class OutputManager {
 			FileWriter fw = new FileWriter(myFile.getAbsoluteFile());
 			BufferedWriter bw = new BufferedWriter(fw);
 			//As I loop through the start deck I need an iterator to go through the end deck
-			ListIterator<Card> cardItr = endDeck.listIterator();
-			startDeck.forEach((card) -> {
+			ListIterator<Card> cardItr = endDeck.getCurrentDeck().listIterator();
+			startDeck.getCurrentDeck().forEach((card) -> {
 				//Here I am writing to the file using the formatter above
 				Card endCard = cardItr.next();
 				try {

@@ -15,19 +15,20 @@ import input_output.OutputManager;
 //Only high card hands that round, with the flop, turn and river
 public class main {
 				
-	private static void printDeck(List<Card> deck){
+	private static void printDeck(Deck myDeck){
+		List<Card> deck = myDeck.getCurrentDeck();
 		deck.forEach((n) -> System.out.println(n.getCard()));
 	}
 	
 	public static void main(String[] args) {
 		//TODO Different args would call different shuffling mehtods
-		Deck myDeck = new Deck(10);	//This creates a blank deck
-		myDeck.getNumberDeck();	//This shuffles the deck
+		Deck myDeck = new Deck(52);	//This creates a blank deck
+		myDeck.getStandardDeck();
+		Deck unshuffledDeck = myDeck.makeCopy();
 		Shuffler shuf = new Shuffler(myDeck);	//Create a new shuffling object
-		shuf.randomShuffle();		//Call the shuffling mehtod
+		myDeck = shuf.randomShuffle();		//Call the shuffling mehtod
 		OutputManager output = new OutputManager();
-//		output.writeFile(unshuffledDeck, deck, "Random");
-//		printDeck(deck);
+		output.writeFile(unshuffledDeck, myDeck);
 	}
 
 }

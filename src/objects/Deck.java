@@ -15,6 +15,14 @@ public class Deck {
 		sizeDeck = size;
 	}
 	
+	//This method will make a copy of itself and return it
+	//I use this to make a copy of the deck before we shuffle it
+	public Deck makeCopy(){
+		Deck otherDeck = new Deck(sizeDeck);
+		otherDeck.deck = new ArrayList<Card>(deck);
+		return otherDeck;
+	}
+	
 	public int getSize(){
 		return sizeDeck;
 	}
@@ -30,6 +38,7 @@ public class Deck {
 		deck.set(index, newCard);
 	}
 	
+	//This will give you a deck with no suit and just numbers
 	public void getNumberDeck(){
 		String value, suit = "";
 		for(int i = 1; i <= sizeDeck; i++){
@@ -38,6 +47,8 @@ public class Deck {
 			deck.add(c);
 		}
 	}
+	
+	//This will give you a standard poker deck
 	public void getStandardDeck(){
 		//Checking that the deck is empty
 		if(!deck.isEmpty())
