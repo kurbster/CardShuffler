@@ -20,10 +20,11 @@ public class main {
 	}
 	
 	public static void main(String[] args) {
+		//TODO Different args would call different shuffling mehtods
 		Deck myDeck = new Deck(10);	//This creates a blank deck
 		myDeck.getNumberDeck();	//This shuffles the deck
-		Shuffler shuf = new Shuffler();	//Create a new shuffling object
-		shuf.randomShuffle(myDeck);		//Call the shuffling mehtod
+		Shuffler shuf = new Shuffler(myDeck);	//Create a new shuffling object
+		shuf.randomShuffle();		//Call the shuffling mehtod
 		OutputManager output = new OutputManager();
 //		output.writeFile(unshuffledDeck, deck, "Random");
 //		printDeck(deck);

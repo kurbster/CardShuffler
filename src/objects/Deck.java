@@ -9,14 +9,14 @@ import java.util.List;
 //You call the specific method
 public class Deck {
 	private List<Card> deck;
-	private int sizeList;
+	private int sizeDeck;
 	public Deck(int size){
 		deck = new ArrayList<Card>(size);
-		sizeList = size;
+		sizeDeck = size;
 	}
 	
 	public int getSize(){
-		return sizeList;
+		return sizeDeck;
 	}
 	public List<Card> getCurrentDeck(){
 		return deck;
@@ -32,7 +32,7 @@ public class Deck {
 	
 	public void getNumberDeck(){
 		String value, suit = "";
-		for(int i = 1; i <= 10; i++){
+		for(int i = 1; i <= sizeDeck; i++){
 			value = Integer.toString(i);
 			Card c = new Card(value, suit);
 			deck.add(c);
