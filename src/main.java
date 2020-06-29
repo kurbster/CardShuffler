@@ -1,10 +1,12 @@
 import java.util.ArrayList;
+
 import java.util.List;
 
 import objects.Card;
 import objects.Deck;
 import objects.Shuffler;
 import input_output.OutputManager;
+
 
 //Created by Kirby Kuznia on 1/14/19
 //This program will see which shuffling styles would shuffle the 
@@ -19,7 +21,7 @@ public class main {
 		List<Card> deck = myDeck.getCurrentDeck();
 		deck.forEach((n) -> System.out.println(n.getCard()));
 	}
-	
+    
 	public static void main(String[] args) {
 		//TODO Different args would call different shuffling mehtods
 		Deck myDeck = new Deck(52);	//This creates a blank deck
